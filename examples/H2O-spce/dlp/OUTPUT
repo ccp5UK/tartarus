@@ -23,7 +23,7 @@
 **** MPI libs: MPI Distribution for SUSE, ident: 3.1.6.0.ea34 ****
 **** MPI libs: 8728b4c8, repo rev: 3.1.6.0.ea348728b4c8, Open ****
 **** MPI libs: MPI 3.1.6 Distribution for SUSE                ****
-**** executed: 2020-05-09  @  22:33:35.405  (GMT+01:00)       ****
+**** executed: 2020-05-09  @  22:39:28.821  (GMT+01:00)       ****
 ******************************************************************
 
 CONFIG file is water.config
@@ -63,7 +63,7 @@ cutoffs driven limit on largest balanced decomposition:     1 nodes/domains (1,1
 link-cell decomposition 1 (x,y,z):      3     3     3
 
 *** pre-scanning stage (set_bounds) DONE ***
- time elapsed since job start:        0.091 sec
+ time elapsed since job start:        0.095 sec
 
 ********************************************************************************
 *** title:                                                                   ***
@@ -132,13 +132,13 @@ simulation cell vectors
 system volume            44788.2534836
 
 *** all reading and connectivity checks DONE ***
- time elapsed since job start:        0.102 sec
+ time elapsed since job start:        0.106 sec
 long-range correction for:
   vdw energy   -0.566844E+02
   vdw pressure   -0.173504E+00
 
 *** initialisation and haloing DONE ***
- time elapsed since job start:        0.110 sec
+ time elapsed since job start:        0.114 sec
 //==============================================================\\
 ||                                                              ||
 ||           SUMMARY  OF  TOPOLOGICAL  DECOMPOSITION            ||
@@ -160,7 +160,7 @@ long-range correction for:
 \\==============================================================//
 
 *** bookkeeping DONE ***
- time elapsed since job start:        0.113 sec
+ time elapsed since job start:        0.116 sec
 degrees of freedom break-down neigh%list:
   free particles               12528
   centre of mass                  -3
@@ -173,7 +173,7 @@ degrees of freedom break-down neigh%list:
   total (real)                  8349
 
 *** temperature setting DONE ***
- time elapsed since job start:        0.153 sec
+ time elapsed since job start:        0.157 sec
 forces evaluated at (re)start for VV integration...
 
 ----------------------------------------------------------------------------------------------------------------------------------
@@ -183,7 +183,7 @@ forces evaluated at (re)start for VV integration...
 ----------------------------------------------------------------------------------------------------------------------------------
             0 -1.1887E+04  3.0000E+02 -1.4376E+04  2.6725E+03 -1.7049E+04  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
       0.00000  4.4565E+03  0.0000E+00 -4.4054E+04 -6.1100E+04  1.7046E+04  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
-        0.469  4.4788E+04  0.0000E+00  0.0000E+00  0.0000E+00  9.0000E+01  9.0000E+01  9.0000E+01  0.0000E+00  2.5022E+01
+        0.482  4.4788E+04  0.0000E+00  0.0000E+00  0.0000E+00  9.0000E+01  9.0000E+01  9.0000E+01  0.0000E+00  2.5022E+01
 
       rolling  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
      averages  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
@@ -191,7 +191,7 @@ forces evaluated at (re)start for VV integration...
 ----------------------------------------------------------------------------------------------------------------------------------
 constraints quench run statistics per call: average cycles 42.00/42.00 minimum cycles  42/ 42 maximum cycles  42/ 42
 ----------------------------------------------------------------------------------------------------------------------------------
-run terminating... elapsed  cpu time:        0.469 sec, job time:  1000000.000 sec, close time:      100.000 sec
+run terminating... elapsed  cpu time:        0.482 sec, job time:  1000000.000 sec, close time:      100.000 sec
 
 dry run terminated
 pressure tensor  (katms):
@@ -199,18 +199,18 @@ pressure tensor  (katms):
    -4.0467E-02  2.4972E+01 -3.0174E-01
     2.1114E-01 -3.0174E-01  2.5542E+01
   trace/3    2.5022E+01
-time elapsed since job start:        0.515 sec
+time elapsed since job start:        0.528 sec
   +----------------------------+----------+----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
   |            Name            | Process  |  Calls   | Call Min  | Call Max  | Call Ave  |  Tot Min  |  Tot Max  |  Tot Ave  |     %     |
-  | |v      Main               | All      |        1 |    0.5143 |    0.5143 |    0.5143 |    0.5143 |    0.5143 |    0.5143 |  100.0000 |
-  |  |-     Initialisation     | All      |        1 |    0.1014 |    0.1014 |    0.1014 |    0.1014 |    0.1014 |    0.1014 |   19.7126 |
-  |  |v     Main Calc          | All      |        1 |    0.3152 |    0.3152 |    0.3152 |    0.3152 |    0.3152 |    0.3152 |   61.2891 |
-  |   |-    Linked Cells       | All      |        1 |    0.1321 |    0.1321 |    0.1321 |    0.1321 |    0.1321 |    0.1321 |   25.6849 |
+  | |v      Main               | All      |        1 |    0.5275 |    0.5275 |    0.5275 |    0.5275 |    0.5275 |    0.5275 |  100.0000 |
+  |  |-     Initialisation     | All      |        1 |    0.1055 |    0.1055 |    0.1055 |    0.1055 |    0.1055 |    0.1055 |   20.0094 |
+  |  |v     Main Calc          | All      |        1 |    0.3242 |    0.3242 |    0.3242 |    0.3242 |    0.3242 |    0.3242 |   61.4682 |
+  |   |-    Linked Cells       | All      |        1 |    0.1319 |    0.1319 |    0.1319 |    0.1319 |    0.1319 |    0.1319 |   25.0033 |
   |   |-    Bonded Forces      | All      |        1 |    0.0000 |    0.0000 |    0.0000 |    0.0000 |    0.0000 |    0.0000 |    0.0001 |
-  |   |-    Long Range         | All      |        1 |    0.0793 |    0.0793 |    0.0793 |    0.0793 |    0.0793 |    0.0793 |   15.4275 |
-  |   |-    Short Range        | All      |        1 |    0.1024 |    0.1024 |    0.1024 |    0.1024 |    0.1024 |    0.1024 |   19.9112 |
-  |  |-     Termination        | All      |        1 |    0.0464 |    0.0464 |    0.0464 |    0.0464 |    0.0464 |    0.0464 |    9.0241 |
-  | ------- Untimed            | All      |        0 |    0.0000 |    0.0000 |    0.0000 |    0.0000 |    0.0000 |    0.0513 |    9.9742 |
+  |   |-    Long Range         | All      |        1 |    0.0819 |    0.0819 |    0.0819 |    0.0819 |    0.0819 |    0.0819 |   15.5193 |
+  |   |-    Short Range        | All      |        1 |    0.1091 |    0.1091 |    0.1091 |    0.1091 |    0.1091 |    0.1091 |   20.6845 |
+  |  |-     Termination        | All      |        1 |    0.0462 |    0.0462 |    0.0462 |    0.0462 |    0.0462 |    0.0462 |    8.7656 |
+  | ------- Untimed            | All      |        0 |    0.0000 |    0.0000 |    0.0000 |    0.0000 |    0.0000 |    0.0515 |    9.7568 |
   +----------------------------+----------+----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
  
  

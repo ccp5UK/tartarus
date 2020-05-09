@@ -24,8 +24,8 @@ read_data water.lmp
   1 = max # of 1-3 neighbors
   1 = max # of 1-4 neighbors
   2 = max # of special neighbors
-  special bonds CPU = 0.000666454 secs
-  read_data CPU = 0.0102652 secs
+  special bonds CPU = 0.000854209 secs
+  read_data CPU = 0.0151823 secs
 include spce.forcefield
 #spce forcefield
 pair_style  lj/cut/coul/long 10.0
@@ -49,27 +49,10 @@ fix   1 all shake 1.0e-4 100 0 b 1 a 1
   0 = # of size 3 clusters
   0 = # of size 4 clusters
   1392 = # of frozen angles
-  find clusters CPU = 0.000686844 secs
+  find clusters CPU = 0.000940851 secs
 
 velocity     all create $T 2020 mom yes rot yes dist gaussian
 velocity     all create 300 2020 mom yes rot yes dist gaussian
-
-compute 1 all bond/local dist
-compute 2 all angle/local theta
-compute 3 all pair/local dist
-
-dump 1 all local 100 bond.dump c_1[*]
-dump 2 all local 100 ang.dump c_2[*]
-dump 3 all local 100 p.dump c_3[*]
-
-group A id 2
-1 atoms in group A
-group B id 3
-1 atoms in group B
-
-
-
-
 
 fix         NVE all nve
 variable ee equal ecoul+elong
@@ -98,23 +81,18 @@ Neighbor list info ...
   master list distance cutoff = 12
   ghost atom cutoff = 12
   binsize = 6, bins = 6 6 6
-  2 neighbor lists, perpetual/occasional/extra = 1 1 0
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
   (1) pair lj/cut/coul/long, perpetual
       attributes: half, newton on
       pair build: half/bin/newton
       stencil: half/bin/3d/newton
       bin: standard
-  (2) compute pair/local, occasional, copy from (1)
-      attributes: half, newton on
-      pair build: copy
-      stencil: none
-      bin: none
-Per MPI rank memory allocation (min/avg/max) = 64.34 | 64.34 | 64.34 Mbytes
+Per MPI rank memory allocation (min/avg/max) = 36.97 | 36.97 | 36.97 Mbytes
 Time TotEng Temp v_ecfg v_esrc v_ee E_bond E_angle v_evdw E_pair E_tail Press 
  0.000000e+00 -1.188720e+04  3.000000e+02 -1.437588e+04  2.672516e+03 -1.704840e+04  0.000000e+00  0.000000e+00  2.729201e+03 -1.437588e+04 -5.668444e+01  5.045049e+02 
-Loop time of 1.16302e-06 on 1 procs for 0 steps with 4176 atoms
+Loop time of 1.24e-06 on 1 procs for 0 steps with 4176 atoms
 
-257.9% CPU use with 1 MPI tasks x no OpenMP threads
+241.9% CPU use with 1 MPI tasks x no OpenMP threads
 
 MPI task timing breakdown:
 Section |  min time  |  avg time  |  max time  |%varavg| %total
@@ -126,7 +104,7 @@ Neigh   | 0          | 0          | 0          |   0.0 |  0.00
 Comm    | 0          | 0          | 0          |   0.0 |  0.00
 Output  | 0          | 0          | 0          |   0.0 |  0.00
 Modify  | 0          | 0          | 0          |   0.0 |  0.00
-Other   |            | 1.163e-06  |            |       |100.00
+Other   |            | 1.24e-06   |            |       |100.00
 
 Nlocal:    4176 ave 4176 max 4176 min
 Histogram: 1 0 0 0 0 0 0 0 0 0

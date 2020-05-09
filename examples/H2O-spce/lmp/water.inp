@@ -11,21 +11,6 @@ include spce.forcefield
 
 velocity     all create $T 2020 mom yes rot yes dist gaussian
 
-compute 1 all bond/local dist
-compute 2 all angle/local theta
-compute 3 all pair/local dist
-
-dump 1 all local 100 bond.dump c_1[*]
-dump 2 all local 100 ang.dump c_2[*]
-dump 3 all local 100 p.dump c_3[*]
-
-group A id 2 
-group B id 3
-
-
-
-
-
 fix         NVE all nve
 variable ee equal ecoul+elong
 variable evdw equal evdwl-etail
