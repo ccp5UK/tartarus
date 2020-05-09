@@ -23,7 +23,7 @@
 **** MPI libs: MPI Distribution for SUSE, ident: 3.1.6.0.ea34 ****
 **** MPI libs: 8728b4c8, repo rev: 3.1.6.0.ea348728b4c8, Open ****
 **** MPI libs: MPI 3.1.6 Distribution for SUSE                ****
-**** executed: 2020-05-09  @  22:33:35.405  (GMT+01:00)       ****
+**** executed: 2020-05-09  @  22:32:38.363  (GMT+01:00)       ****
 ******************************************************************
 
 CONFIG file is water.config
@@ -63,7 +63,7 @@ cutoffs driven limit on largest balanced decomposition:     1 nodes/domains (1,1
 link-cell decomposition 1 (x,y,z):      3     3     3
 
 *** pre-scanning stage (set_bounds) DONE ***
- time elapsed since job start:        0.091 sec
+ time elapsed since job start:        0.101 sec
 
 ********************************************************************************
 *** title:                                                                   ***
@@ -86,8 +86,6 @@ B-spline interpolation order     8
 Ensemble : NVE (Microcanonical)
 vdw direct option on
 clean start requested
-iterations for shake/rattle        250
-tolerance for shake/rattle (Angs)   1.0000E-04
 Extended Coulombic eXclusion : NO
 cutoff padding reset to (Angs)   2.0000E-01
 vdw cutoff reset to (Angs)   1.0000E+01
@@ -101,18 +99,21 @@ system specification
 energy units = kcal/mol
 number of molecular types               1
 molecular species type                  1
-name of species:             SPCE Water
+name of species:             SPC Water
 number of atoms/sites                   3
 atomic characteristics:
         site    name             mass         charge      repeat      freeze
            1    O             15.999400      -0.847200         1         0
            2    H              1.008000       0.423600         2         0
-number of bond constraints              3
-constraint bond details:
-        unit     index     index     bondlength
-           1         1         2       1.000000
-           2         1         3       1.000000
-           3         2         3       1.633283
+number of chemical bonds          2
+chemical bond details:
+        unit     key     index     index     parameters
+           1    harm         1         2    2000.000000       1.000000       0.000000       0.000000
+           2    harm         1         3    2000.000000       1.000000       0.000000       0.000000
+number of bond angles          1
+bond angle details:
+        unit     key     index     index     index        f-const        angle
+           1    harm         2         1         3     200.000000     109.470000       0.000000       0.000000       0.000000       0.000000
 total number of molecules       1392
 total number of sites          3
 number of specified vdw potentials          1
@@ -132,13 +133,13 @@ simulation cell vectors
 system volume            44788.2534836
 
 *** all reading and connectivity checks DONE ***
- time elapsed since job start:        0.102 sec
+ time elapsed since job start:        0.126 sec
 long-range correction for:
   vdw energy   -0.566844E+02
   vdw pressure   -0.173504E+00
 
 *** initialisation and haloing DONE ***
- time elapsed since job start:        0.110 sec
+ time elapsed since job start:        0.142 sec
 //==============================================================\\
 ||                                                              ||
 ||           SUMMARY  OF  TOPOLOGICAL  DECOMPOSITION            ||
@@ -149,31 +150,31 @@ long-range correction for:
 ||  all particles/sites    |        4176  |  F            0     ||
 ||  free particles         |        4176  |  F            0     ||
 ||  core-shell units       |           0  |  P            0     ||
-||  constraint bond units  |        4176  |  F            0     ||
+||  constraint bond units  |           0  |  F            0     ||
 ||  PMF units              |           0  |  P         NONE     ||
 ||  rigid body units       |           0  |  F            0     ||
 ||  tethered atom units    |           0  |  F            0     ||
-||  chemical bond units    |           0  |  F            0     ||
-||  bond angle units       |           0  |  F            0     ||
+||  chemical bond units    |        2784  |  F            0     ||
+||  bond angle units       |        1392  |  F            0     ||
 ||  dihedral angle units   |           0  |  F            0     ||
 ||  inversion angle units  |           0  |  F            0     ||
 \\==============================================================//
 
 *** bookkeeping DONE ***
- time elapsed since job start:        0.113 sec
+ time elapsed since job start:        0.146 sec
 degrees of freedom break-down neigh%list:
   free particles               12528
   centre of mass                  -3
   non-periodicity                  0
   frozen free particles            0
   shell-pseudo                     0
-  constrained                  -4176
+  constrained                      0
   RB translational                 0
   RB rotational                    0
-  total (real)                  8349
+  total (real)                 12525
 
 *** temperature setting DONE ***
- time elapsed since job start:        0.153 sec
+ time elapsed since job start:        0.169 sec
 forces evaluated at (re)start for VV integration...
 
 ----------------------------------------------------------------------------------------------------------------------------------
@@ -181,36 +182,34 @@ forces evaluated at (re)start for VV integration...
      time(ps)      eng_pv    temp_rot     vir_cfg     vir_src     vir_cou     vir_bnd     vir_ang     vir_con     vir_tet
      cpu  (s)      volume    temp_shl     eng_shl     vir_shl       alpha        beta       gamma     vir_pmf       press
 ----------------------------------------------------------------------------------------------------------------------------------
-            0 -1.1887E+04  3.0000E+02 -1.4376E+04  2.6725E+03 -1.7049E+04  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
-      0.00000  4.4565E+03  0.0000E+00 -4.4054E+04 -6.1100E+04  1.7046E+04  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
-        0.469  4.4788E+04  0.0000E+00  0.0000E+00  0.0000E+00  9.0000E+01  9.0000E+01  9.0000E+01  0.0000E+00  2.5022E+01
+            0 -1.0598E+04  3.0000E+02 -1.4331E+04  2.6725E+03 -1.7049E+04  4.1345E+01  3.1927E+00  0.0000E+00  0.0000E+00
+      0.00000  5.2160E+03  0.0000E+00 -3.9975E+04 -6.1100E+04  1.7046E+04  4.0789E+03  0.0000E+00  0.0000E+00  0.0000E+00
+        0.494  4.4788E+04  0.0000E+00  0.0000E+00  0.0000E+00  9.0000E+01  9.0000E+01  9.0000E+01  0.0000E+00  2.4210E+01
 
       rolling  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
      averages  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
                0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
 ----------------------------------------------------------------------------------------------------------------------------------
-constraints quench run statistics per call: average cycles 42.00/42.00 minimum cycles  42/ 42 maximum cycles  42/ 42
-----------------------------------------------------------------------------------------------------------------------------------
-run terminating... elapsed  cpu time:        0.469 sec, job time:  1000000.000 sec, close time:      100.000 sec
+run terminating... elapsed  cpu time:        0.494 sec, job time:  1000000.000 sec, close time:      100.000 sec
 
 dry run terminated
 pressure tensor  (katms):
-    2.4550E+01 -4.0467E-02  2.1114E-01
-   -4.0467E-02  2.4972E+01 -3.0174E-01
-    2.1114E-01 -3.0174E-01  2.5542E+01
-  trace/3    2.5022E+01
-time elapsed since job start:        0.515 sec
+    2.3719E+01  1.8251E-01  1.6440E-01
+    1.8251E-01  2.4176E+01 -1.2418E-01
+    1.6440E-01 -1.2418E-01  2.4736E+01
+  trace/3    2.4210E+01
+time elapsed since job start:        0.542 sec
   +----------------------------+----------+----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
   |            Name            | Process  |  Calls   | Call Min  | Call Max  | Call Ave  |  Tot Min  |  Tot Max  |  Tot Ave  |     %     |
-  | |v      Main               | All      |        1 |    0.5143 |    0.5143 |    0.5143 |    0.5143 |    0.5143 |    0.5143 |  100.0000 |
-  |  |-     Initialisation     | All      |        1 |    0.1014 |    0.1014 |    0.1014 |    0.1014 |    0.1014 |    0.1014 |   19.7126 |
-  |  |v     Main Calc          | All      |        1 |    0.3152 |    0.3152 |    0.3152 |    0.3152 |    0.3152 |    0.3152 |   61.2891 |
-  |   |-    Linked Cells       | All      |        1 |    0.1321 |    0.1321 |    0.1321 |    0.1321 |    0.1321 |    0.1321 |   25.6849 |
-  |   |-    Bonded Forces      | All      |        1 |    0.0000 |    0.0000 |    0.0000 |    0.0000 |    0.0000 |    0.0000 |    0.0001 |
-  |   |-    Long Range         | All      |        1 |    0.0793 |    0.0793 |    0.0793 |    0.0793 |    0.0793 |    0.0793 |   15.4275 |
-  |   |-    Short Range        | All      |        1 |    0.1024 |    0.1024 |    0.1024 |    0.1024 |    0.1024 |    0.1024 |   19.9112 |
-  |  |-     Termination        | All      |        1 |    0.0464 |    0.0464 |    0.0464 |    0.0464 |    0.0464 |    0.0464 |    9.0241 |
-  | ------- Untimed            | All      |        0 |    0.0000 |    0.0000 |    0.0000 |    0.0000 |    0.0000 |    0.0513 |    9.9742 |
+  | |v      Main               | All      |        1 |    0.5356 |    0.5356 |    0.5356 |    0.5356 |    0.5356 |    0.5356 |  100.0000 |
+  |  |-     Initialisation     | All      |        1 |    0.1200 |    0.1200 |    0.1200 |    0.1200 |    0.1200 |    0.1200 |   22.4000 |
+  |  |v     Main Calc          | All      |        1 |    0.3255 |    0.3255 |    0.3255 |    0.3255 |    0.3255 |    0.3255 |   60.7636 |
+  |   |-    Linked Cells       | All      |        1 |    0.1342 |    0.1342 |    0.1342 |    0.1342 |    0.1342 |    0.1342 |   25.0580 |
+  |   |-    Bonded Forces      | All      |        1 |    0.0034 |    0.0034 |    0.0034 |    0.0034 |    0.0034 |    0.0034 |    0.6278 |
+  |   |-    Long Range         | All      |        1 |    0.0814 |    0.0814 |    0.0814 |    0.0814 |    0.0814 |    0.0814 |   15.1994 |
+  |   |-    Short Range        | All      |        1 |    0.1013 |    0.1013 |    0.1013 |    0.1013 |    0.1013 |    0.1013 |   18.9167 |
+  |  |-     Termination        | All      |        1 |    0.0473 |    0.0473 |    0.0473 |    0.0473 |    0.0473 |    0.0473 |    8.8233 |
+  | ------- Untimed            | All      |        0 |    0.0000 |    0.0000 |    0.0000 |    0.0000 |    0.0000 |    0.0429 |    8.0131 |
   +----------------------------+----------+----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
  
  

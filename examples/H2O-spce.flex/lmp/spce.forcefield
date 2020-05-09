@@ -2,8 +2,9 @@
 pair_style  lj/cut/coul/long 10.0
 
 pair_coeff  * * 0.0000 0.000
-pair_coeff  1 1 0.15535 3.166 # epsilon sigma en kcal/mol et angstroms
+pair_coeff  1 1 0.15535 3.166
 pair_modify tail yes
+
 bond_style  harmonic
 angle_style harmonic
 dihedral_style  none
@@ -15,4 +16,4 @@ kspace_style  pppm 1.0e-6
 #kspace_modify mesh 48 48 48 gewald 3.2080E-01
 
 #special_bonds   lj/coul 0.0 0.0 0.5
-fix   1 all shake 1.0e-4 100 0 b 1 a 1
+#fix   1 all shake 1.0e-4 100 0 b 1 a 1
