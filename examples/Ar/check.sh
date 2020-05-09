@@ -30,7 +30,10 @@ deb=${dline[5]}
 lea=${lline[7]}
 dea=${dline[6]}
 ltail=${lline[10]}
+lpr=${lline[11]}
+dpr=$(echo ${dline[26]} | awk '{print $1*1000.0}')
 compare "esrc" "$lesrc" "$desrc"
 compare "ecfg" "$lecfg" "$decfg"
 compare "etot" "$leto" "$deto"
 compare "etail" "$ltail" "$etail"
+compare "pressure"  "$lpr" "$dpr"
