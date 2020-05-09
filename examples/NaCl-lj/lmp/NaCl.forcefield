@@ -1,0 +1,7 @@
+pair_style lj/cut/coul/long  11.0
+pair_coeff 1 1      0.3826 3.85
+pair_coeff 1 2      0.1152 3.19
+pair_coeff 2 2      0.0347 2.52
+pair_modify tail yes
+
+kspace_style pppm 1e-6
