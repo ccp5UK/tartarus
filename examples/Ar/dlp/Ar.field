@@ -1,0 +1,11 @@
+DL_POLY : Argon
+units kcal
+molecules 1
+Argon
+nummols     1
+atoms 864
+Ar             39.948         0.0    864    0
+finish
+vdw     1
+Ar      Ar       lj     0.2381       3.4050
+close

@@ -1,0 +1,25 @@
+# Sample Ar
+
+units       real
+variable    T equal 4.2
+variable    dt equal 4.0
+
+read_data Ar.lmp
+include Ar.forcefield
+
+velocity     all create $T 2020 mom yes rot yes dist gaussian
+neighbor 0.2 bin
+
+fix          NVE all nve
+
+variable ee equal ecoul+elong
+variable evdw equal evdwl-etail
+variable ecfg equal evdwl+v_ee
+variable esrc equal evdwl
+thermo_style custom time etotal temp  v_ecfg v_esrc  v_ee  ebond eangle v_evdw epair etail press
+thermo_modify flush yes format line "%13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e"
+thermo 10
+
+timestep     ${dt}
+run          0
+

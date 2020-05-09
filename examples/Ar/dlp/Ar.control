@@ -1,0 +1,23 @@
+DL_POLY: LJ Argon
+
+temperature       4.2
+pressure          0.0
+
+ensemble nve
+
+timestep          0.004 ps
+vdw direct
+steps             0
+equilibration     0
+collect
+
+cutoff            10.0 angstrom
+io config Ar.config
+io field Ar.field
+print every       1 steps
+stats every      1 steps
+stack           1 deep
+job time  2000 seconds
+close time  10 seconds
+
+finish
