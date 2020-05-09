@@ -1,0 +1,26 @@
+#NaCl
+
+units       real
+variable    T equal 500
+variable    dt equal 1.0
+
+timestep     ${dt}
+
+atom_style charge
+read_data NaCl.lmp
+include NaCl.forcefield
+
+velocity     all create $T 2020 mom yes rot yes dist gaussian
+
+fix         NVE all nve
+variable ee equal ecoul+elong
+variable evdw equal evdwl-etail
+variable ecfg equal evdwl+v_ee
+variable esrc equal evdwl
+
+
+thermo_style custom time etotal temp  v_ecfg v_esrc  v_ee  ebond eangle v_evdw epair etail press
+thermo_modify flush yes format line "%13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e"
+thermo 10
+
+run          0

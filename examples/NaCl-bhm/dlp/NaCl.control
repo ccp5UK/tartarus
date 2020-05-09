@@ -1,0 +1,22 @@
+SODIUM CHLORIDE
+
+temperature           500.0
+equilibration steps   0
+steps                 0
+timestep              0.001
+
+cutoff                11.0
+ewald precision       1d-6
+ensemble nve
+
+print every           1
+stats every           1
+collect
+
+io field NaCl.field
+io config NaCl.config
+
+job time              10000
+close time            10
+
+finish

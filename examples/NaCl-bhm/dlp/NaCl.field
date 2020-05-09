@@ -1,0 +1,14 @@
+SODIUM CHLORIDE
+units kcal/mole
+molecular types 1
+SODIUM CHLORIDE
+nummols      256
+atoms 2
+Na          22.989769         1.0  1
+Cl           35.453        -1.0  1
+finish
+vdw    3
+Na      Na  bhm       6.08114245       3.15450000       2.34000000      24.18021033      11.51457935
+Na      Cl  bhm       4.86491396       3.15450000       2.75500000     161.20458891     200.06692161
+Cl      Cl  bhm       3.64868547       3.15450000       3.17000000    1669.62237094    3353.72848948
+close
