@@ -1,0 +1,24 @@
+adp
+
+temperature         300.0
+steps               0
+equil               0
+
+print                 1
+stack                 1
+stats                 1
+timestep  0.001
+
+cutoff               10.0
+
+ewald precision    1.0E-6
+
+ensemble nve
+vdw direct
+#vdw mix hoger
+io config adp.config
+io field adp.field
+
+job time       1000000.0
+close time         100.0
+finish

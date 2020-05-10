@@ -1,0 +1,174 @@
+LAMMPS (5 May 2020)
+# Alanine dipeptide
+#
+units       real
+atom_style    full
+variable T equal 300.0
+
+
+read_data   adp.lmp
+  orthogonal box = (0 0 -3) to (21 21 18)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  22 atoms
+  scanning bonds ...
+  3 = max bonds/atom
+  scanning angles ...
+  6 = max angles/atom
+  scanning dihedrals ...
+  20 = max dihedrals/atom
+  reading bonds ...
+  21 bonds
+  reading angles ...
+  36 angles
+  reading dihedrals ...
+  66 dihedrals
+  4 = max # of 1-2 neighbors
+  7 = max # of 1-3 neighbors
+  13 = max # of 1-4 neighbors
+  16 = max # of special neighbors
+  special bonds CPU = 8.398e-05 secs
+  read_data CPU = 0.00240289 secs
+include adp.forcefield
+pair_style    lj/cut/coul/long 10.0
+
+#pair_modify   tail yes mix geometric
+pair_modify   tail yes
+kspace_style  pppm 1.0e-6
+special_bonds lj/coul 0.0 0.0 0.0
+
+pair_coeff  * * 0.0000 0.000
+pair_coeff 1 1 0.01570000002623629  2.6495327872602221
+pair_coeff 2 2 0.10939999991572773  3.3996695084507409
+pair_coeff 3 3 0.086000000128358844 3.3996695079448309
+pair_coeff 4 4 0.20999999984182244  2.9599219016446874
+pair_coeff 5 5 0.16999999991766696  3.2499985240310356
+pair_coeff 6 6 0.015700000004219245 1.0690784617205229
+pair_coeff 7 7 0.015700000098461422 2.4713530426421655
+
+bond_style    harmonic
+bond_coeff 1 570.0 1.229
+bond_coeff 2 490.0 1.335
+bond_coeff 3 340.0 1.090
+bond_coeff 4 317.0 1.522
+bond_coeff 5 340.0 1.090
+bond_coeff 6 310.0 1.526
+bond_coeff 7 434.0 1.010
+bond_coeff 8 337.0 1.449
+
+angle_style   harmonic
+angle_coeff 1 80.0 122.90005267195104
+angle_coeff 2 50.0 120.00005142908158
+angle_coeff 3 50.0 121.90005224337536
+angle_coeff 4 50.0 109.50004692903693
+angle_coeff 5 35.0 109.50004692903693
+angle_coeff 6 80.0 120.40005160051184
+angle_coeff 7 70.0 116.60004997192425
+angle_coeff 8 63.0 111.10004761475803
+angle_coeff 9 50.0 109.50004692903693
+angle_coeff 10 50.0 109.50004692903693
+angle_coeff 11 50.0 109.50004692903693
+angle_coeff 12 50.0 118.04005047448166
+angle_coeff 13 50.0 109.50004692903693
+angle_coeff 14 80.0 109.70004701475206
+angle_coeff 15 63.0 110.10004718618234
+angle_coeff 16 35.0 109.50004692903693
+
+dihedral_style  harmonic
+dihedral_coeff  1 2.0          1 1
+dihedral_coeff  2 2.5         -1 2
+dihedral_coeff  3 0.0          1 2
+dihedral_coeff  4 2.0          1 2
+dihedral_coeff  5 0.4          1 3
+dihedral_coeff  6 0.0          1 4
+dihedral_coeff  7 0.0          1 1
+dihedral_coeff  8 0.272        1 2
+dihedral_coeff  9 0.43         1 3
+dihedral_coeff 10 0.8          1 1
+dihedral_coeff 11 0.08        -1 3
+dihedral_coeff 12 0.155555556  1 3
+dihedral_coeff 13 0.20         1 1
+dihedral_coeff 14 0.20         1 2
+dihedral_coeff 15 0.45        -1 1
+dihedral_coeff 16 1.58        -1 2
+dihedral_coeff 17 0.55        -1 3
+dihedral_coeff 18 10.5        -1 2
+dihedral_coeff 19 1.10        -1 2
+velocity     all create $T 2020 mom yes rot yes dist gaussian
+velocity     all create 300 2020 mom yes rot yes dist gaussian
+
+neighbor    2.0 bin
+neigh_modify  every 1 delay 0 check yes
+
+fix         NVE all nve
+#fix         NVE all npt temp 300.0 300.0 100.0 iso 0.0 0.0 1000.0
+
+variable        charge equal charge(all)
+print "charge ${charge}"
+charge -0.0725999999999999
+variable ee equal ecoul+elong
+variable evdw equal evdwl-etail
+variable ecfg equal evdwl+v_ee+edihed+ebond+eangle
+variable esrc equal evdwl
+thermo_style custom time etotal temp  v_ecfg v_esrc  v_ee  ebond eangle edihed v_evdw epair etail press
+thermo_modify flush yes format line "%13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e"
+thermo 10
+
+timestep    0.1
+run 0
+PPPM initialization ...
+WARNING: System is not charge neutral, net charge = -0.0726 (src/kspace.cpp:313)
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:332)
+  G vector (1/distance) = 0.2901
+  grid = 15 15 15
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.000291116
+  estimated relative force accuracy = 8.76688e-07
+  using double precision FFTW3
+  3d grid and FFT values/proc = 10648 3375
+Neighbor list info ...
+  update every 1 steps, delay 0 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 12
+  ghost atom cutoff = 12
+  binsize = 6, bins = 4 4 4
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair lj/cut/coul/long, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d/newton
+      bin: standard
+Per MPI rank memory allocation (min/avg/max) = 16.16 | 16.16 | 16.16 Mbytes
+Time TotEng Temp v_ecfg v_esrc v_ee E_bond E_angle E_dihed v_evdw E_pair E_tail Press 
+ 0.000000e+00 -6.648167e+01  3.000000e+02 -8.526078e+01 -2.239375e-01 -9.403282e+01  4.597482e-04  6.552610e-02  8.929997e+00 -2.195497e-01 -9.425676e+01 -4.387791e-03 -1.433877e+02 
+Loop time of 9.35004e-07 on 1 procs for 0 steps with 22 atoms
+
+107.0% CPU use with 1 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Bond    | 0          | 0          | 0          |   0.0 |  0.00
+Kspace  | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 9.35e-07   |            |       |100.00
+
+Nlocal:    22 ave 22 max 22 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:    154 ave 154 max 154 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:    231 ave 231 max 231 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 231
+Ave neighs/atom = 10.5
+Ave special neighs/atom = 8.90909
+Neighbor list builds = 0
+Dangerous builds = 0
+
+
+Total wall time: 0:00:00

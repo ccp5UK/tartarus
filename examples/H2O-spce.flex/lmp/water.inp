@@ -14,7 +14,7 @@ velocity     all create $T 2020 mom yes rot yes dist gaussian
 fix         NVE all nve
 variable ee equal ecoul+elong
 variable evdw equal evdwl-etail
-variable ecfg equal evdwl+v_ee
+variable ecfg equal evdwl+v_ee+ebond+eangle
 variable esrc equal evdwl
 thermo_style custom time etotal temp  v_ecfg v_esrc  v_ee  ebond eangle v_evdw epair etail press
 thermo_modify flush yes format line "%13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e"

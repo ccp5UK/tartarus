@@ -1,0 +1,407 @@
+******************************************************************
+*************  stfc/ccp5  program  library  package  ** D ********
+*************  daresbury laboratory general purpose  *** L *******
+**         **  classical molecular dynamics program  **** \ ******
+** DL_POLY **  authors:   i.t.todorov   &   w.smith  ***** P *****
+**         **  version:  4.10alph /    october 2018  ****** O ****
+*************  execution on           1 process(es)  ******* L ***
+*************  contributors' list:                   ******** Y **
+*************  ------------------------------------  *************
+*************  i.j.bush, h.a.boateng, r.davidchak,   *************
+*************  m.a.seaton, a.v.brukhno, a.m.elena,   *************
+*************  s.l.daraszewicz,g.khara,s.t.murphy    *************
+*************  j.madge,a.b.g.chalk,i.scivetti        *************
+******************************************************************
+
+******************************************************************
+**** birthday: May 8 2020 @ 09:36:35                          ****
+****  machine: circassia.lan                                  ****
+****  builder: dr faustroll                                   ****
+**** compiler: gfortran v9.3.1 20200406 [revision 6db837a5288 ****
+****      MPI: v3.1                                           ****
+**** MPI libs: Open MPI v3.1.6.0.ea348728b4c8, package: Open  ****
+**** MPI libs: MPI Distribution for SUSE, ident: 3.1.6.0.ea34 ****
+**** MPI libs: 8728b4c8, repo rev: 3.1.6.0.ea348728b4c8, Open ****
+**** MPI libs: MPI 3.1.6 Distribution for SUSE                ****
+**** executed: 2020-05-10  @  18:51:40.600  (GMT+01:00)       ****
+******************************************************************
+
+CONFIG file is adp.config
+FIELD file is adp.field
+
+I/O read method: parallel by using MPI-I/O (assumed)
+I/O write method: parallel by using MPI-I/O (assumed)
+*** warning - short-ranged interaction cutoff check: vdws%cutoff = Min(vdws%cutoff,Max(neigh%cutoff,rcut_def)) !!! ***
+
+ warning issued     40
+
+ *** warning - tentative cutoff reset to   0.000 Angstroms !!! ***
+
+*** warning - DD cutoff check: neigh%cutoff = Max(neigh%cutoff,vdws%cutoff,met%rcut,kim_data%cutoff,bond%rcut,2.0_wp*rcter+1.0e-6_wp !!! ***
+
+ warning issued     40
+
+ *** warning - tentative cutoff reset to  10.000 Angstroms !!! ***
+
+
+node/domain decomposition (x,y,z):      1      1      1
+
+ warning issued    100
+
+ *** warning - primary link cell algorithm has a link cell dimension that is < 3 !!! ***
+ *** DL_POLY_4 RUNNING IN LOW EFFICIENCY MODE !!! ***
+
+
+ warning issued      6
+
+ *** warning - maximum length of linked cell list: 21 + 1 is less than maximum length of particle exclusion list: 23 !!! ***
+ *** this may be due to using too short a cutoff in CONTROL and/or a badly defined intramolecular topology in FIELD !!! ***
+ *** further potential problems may be expected !!! ***
+Final link-cell decomposition (x,y,z):      2     2     2
+
+*** pre-scanning stage (set_bounds) DONE ***
+time elapsed since job start:        0.004 sec
+
+********************************************************************************
+*** title:                                                                   ***
+*** adp                                                                      ***
+********************************************************************************
+
+simulation control parameters
+simulation temperature (K)    3.0000E+02
+selected number of timesteps          0
+equilibration period (steps)          0
+data printing interval (steps)          1
+data stacking interval (steps)        100
+statistics file interval          1
+real space cutoff (Angs)   1.0000E+01
+Electrostatics : Smooth Particle Mesh Ewald
+Ewald sum precision   1.0000E-06
+Ewald convergence parameter (A^-1)   3.2080E-01
+Ewald kmax1 kmax2 kmax3   (x2)    14   14   14
+DaFT adjusted kmax values (x2)    15   15   15
+B-spline interpolation order     8
+Ensemble : NVE (Microcanonical)
+vdw direct option on
+clean start requested
+Extended Coulombic eXclusion : NO
+cutoff padding reset to (Angs)   2.0000E-01
+vdw cutoff reset to (Angs)   1.0000E+01
+fixed simulation timestep (ps)   1.0000E-03
+data dumping interval (steps)       1000
+subcelling threshold density   5.0000E+01
+allocated job run time (s)   1.0000E+06
+allocated job close time (s)   1.0000E+02
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (1,2) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (1,3) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (2,3) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (5,6) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (5,7) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (6,7) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (9,10) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (9,11) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (10,11) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (13,14) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (22,23) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (22,24) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (22,25) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (23,24) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (23,25) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (24,25) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (26,27) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (26,28) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (26,29) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (27,28) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (27,29) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (28,29) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (34,35) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (42,43) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (42,44) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (42,45) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (43,44) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (43,45) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (44,45) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (47,48) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (47,49) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (47,50) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (48,49) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (48,50) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (49,50) !!! ***
+
+
+ warning issued    440
+
+ *** warning - dihedral angle duplicate specification (54,55) !!! ***
+
+
+ warning issued      5
+
+ *** warning - non-zero total system charge:      -0.0726 positrons !!! ***
+
+
+ warning issued    120
+
+ *** warning - unspecified atom-atom interactions set to zero !!! ***
+
+
+ warning issued     20
+
+ *** warning - : 1..4 scale factors reset for molecule: 1 sites: 2 & 6 !!! ***
+
+
+ warning issued     20
+
+ *** warning - : 1..4 scale factors reset for molecule: 1 sites: 5 & 8 !!! ***
+
+
+ warning issued     20
+
+ *** warning - : 1..4 scale factors reset for molecule: 1 sites: 9 & 16 !!! ***
+
+
+ warning issued     20
+
+ *** warning - : 1..4 scale factors reset for molecule: 1 sites: 15 & 18 !!! ***
+
+configuration file name:           CONFIG generated by ASE
+selected image convention               3
+simulation cell vectors
+       21.0000000000        0.0000000000        0.0000000000
+        0.0000000000       21.0000000000        0.0000000000
+        0.0000000000        0.0000000000       21.0000000000
+system volume            9261.00000000
+
+*** all reading and connectivity checks DONE ***
+time elapsed since job start:        0.010 sec
+long-range correction for:
+  vdw energy   -0.438779E-02
+  vdw pressure   -0.649459E-04
+
+*** initialisation and haloing DONE ***
+time elapsed since job start:        0.010 sec
+//==============================================================\\
+||                                                              ||
+||           SUMMARY  OF  TOPOLOGICAL  DECOMPOSITION            ||
+||                                                              ||
+||--------------------------------------------------------------||
+||  INTERACTION  OR  TYPE  |  GRAND TOTAL | Fully/Partly FROZEN ||
+||-------------------------+--------------+---------------------||
+||  all particles/sites    |          22  |  F            0     ||
+||  free particles         |          22  |  F            0     ||
+||  core-shell units       |           0  |  P            0     ||
+||  constraint bond units  |           0  |  F            0     ||
+||  PMF units              |           0  |  P         NONE     ||
+||  rigid body units       |           0  |  F            0     ||
+||  tethered atom units    |           0  |  F            0     ||
+||  chemical bond units    |          21  |  F            0     ||
+||  bond angle units       |          36  |  F            0     ||
+||  dihedral angle units   |          66  |  F            0     ||
+||  inversion angle units  |           0  |  F            0     ||
+\\==============================================================//
+
+*** bookkeeping DONE ***
+time elapsed since job start:        0.010 sec
+degrees of freedom break-down neigh%list:
+  free particles                  66
+  centre of mass                  -3
+  non-periodicity                  0
+  frozen free particles            0
+  shell-pseudo                     0
+  constrained                      0
+  RB translational                 0
+  RB rotational                    0
+  total (real)                    63
+
+*** temperature setting DONE ***
+time elapsed since job start:        0.010 sec
+forces evaluated at (re)start for VV integration...
+
+----------------------------------------------------------------------------------------------------------------------------------
+         step     eng_tot    temp_tot     eng_cfg     eng_src     eng_cou     eng_bnd     eng_ang     eng_dih     eng_tet
+     time(ps)      eng_pv    temp_rot     vir_cfg     vir_src     vir_cou     vir_bnd     vir_ang     vir_con     vir_tet
+     cpu  (s)      volume    temp_shl     eng_shl     vir_shl       alpha        beta       gamma     vir_pmf       press
+----------------------------------------------------------------------------------------------------------------------------------
+            0 -6.6484E+01  3.0000E+02 -8.5263E+01 -2.2394E-01 -9.4035E+01  4.5975E-04  6.5526E-02  8.9300E+00  0.0000E+00
+      0.00000 -8.5848E+01  0.0000E+00  9.5650E+01  1.0515E+00  9.4026E+01  5.7242E-01  0.0000E+00  0.0000E+00  0.0000E+00
+        0.011  9.2610E+03  0.0000E+00  0.0000E+00  0.0000E+00  9.0000E+01  9.0000E+01  9.0000E+01  0.0000E+00 -1.4337E-01
+
+      rolling  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+     averages  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+               0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+----------------------------------------------------------------------------------------------------------------------------------
+run terminating... elapsed  cpu time:        0.011 sec, job time:  1000000.000 sec, close time:      100.000 sec
+
+dry run terminated
+pressure tensor  (katms):
+   -4.4044E-02 -2.0082E-01 -1.9734E-02
+   -2.0082E-01 -4.8651E-01 -1.0326E-01
+   -1.9734E-02 -1.0326E-01  1.0044E-01
+  trace/3   -1.4337E-01
+time elapsed since job start:        0.013 sec
+ +----------------------------+----------+----------+------------+------------+------------+------------+------------+------------+------------+
+ |            Name            | Process  |  Calls   |  Call Min  |  Call Max  |  Call Ave  |  Tot Min   |   Tot Max  |   Tot Ave  |      %     |
+ | |v      Main               | All      |        1 |  1.234E-02 |  1.234E-02 |  1.234E-02 |  1.234E-02 |  1.234E-02 |  1.234E-02 |  1.000E+02 |
+ |  |-     Initialisation     | All      |        1 |  9.272E-03 |  9.272E-03 |  9.272E-03 |  9.272E-03 |  9.272E-03 |  9.272E-03 |  7.514E+01 |
+ |  |v     Main Calc          | All      |        1 |  1.272E-03 |  1.272E-03 |  1.272E-03 |  1.272E-03 |  1.272E-03 |  1.272E-03 |  1.030E+01 |
+ |   |-    Linked Cells       | All      |        1 |  4.299E-05 |  4.299E-05 |  4.299E-05 |  4.299E-05 |  4.299E-05 |  4.299E-05 |  3.483E-01 |
+ |   |-    Bonded Forces      | All      |        1 |  7.216E-05 |  7.216E-05 |  7.216E-05 |  7.216E-05 |  7.216E-05 |  7.216E-05 |  5.848E-01 |
+ |   |-    Long Range         | All      |        1 |  7.250E-04 |  7.250E-04 |  7.250E-04 |  7.250E-04 |  7.250E-04 |  7.250E-04 |  5.875E+00 |
+ |   |-    Short Range        | All      |        1 |  1.264E-04 |  1.264E-04 |  1.264E-04 |  1.264E-04 |  1.264E-04 |  1.264E-04 |  1.024E+00 |
+ |  |-     Termination        | All      |        1 |  1.540E-03 |  1.540E-03 |  1.540E-03 |  1.540E-03 |  1.540E-03 |  1.540E-03 |  1.248E+01 |
+ | ------- Untimed            | All      |        0 |  0.000E+00 |  0.000E+00 |  0.000E+00 |  0.000E+00 |  0.000E+00 |  2.563E-04 |  2.077E+00 |
+ +----------------------------+----------+----------+------------+------------+------------+------------+------------+------------+------------+
+
+
+
+******************************************************************
+**** Thank you for using the DL_POLY_4 package in your work.  ****
+**** Please, acknowledge our efforts by including the         ****
+**** following references when publishing data obtained using ****
+**** DL_POLY_4:                                               ****
+****   - I.T. Todorov, W. Smith, K. Trachenko & M.T. Dove,    ****
+****     J. Mater. Chem., 16, 1911-1918 (2006),               ****
+****     https://doi.org/10.1039/B517931A                     ****
+****   - I.J. Bush, I.T. Todorov & W. Smith,                  ****
+****     Comp. Phys. Commun., 175, 323-329 (2006),            ****
+****     https://doi.org/10.1016/j.cpc.2006.05.001            ****
+******************************************************************
