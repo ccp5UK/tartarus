@@ -1,4 +1,4 @@
-LAMMPS (5 May 2020)
+LAMMPS (3 Mar 2020)
 # Alanine dipeptide
 #
 units       real
@@ -27,24 +27,23 @@ read_data   adp.lmp
   7 = max # of 1-3 neighbors
   13 = max # of 1-4 neighbors
   16 = max # of special neighbors
-  special bonds CPU = 8.398e-05 secs
-  read_data CPU = 0.00240289 secs
+  special bonds CPU = 0.000569416 secs
+  read_data CPU = 0.0159258 secs
 include adp.forcefield
 pair_style    lj/cut/coul/long 10.0
-
-#pair_modify   tail yes mix geometric
-pair_modify   tail yes
-kspace_style  pppm 1.0e-6
-special_bonds lj/coul 0.0 0.0 0.0
-
+pair_modify   tail yes #mix arithmetic
 pair_coeff  * * 0.0000 0.000
-pair_coeff 1 1 0.01570000002623629  2.6495327872602221
-pair_coeff 2 2 0.10939999991572773  3.3996695084507409
-pair_coeff 3 3 0.086000000128358844 3.3996695079448309
-pair_coeff 4 4 0.20999999984182244  2.9599219016446874
-pair_coeff 5 5 0.16999999991766696  3.2499985240310356
-pair_coeff 6 6 0.015700000004219245 1.0690784617205229
-pair_coeff 7 7 0.015700000098461422 2.4713530426421655
+
+kspace_style  pppm 1.0e-6
+#special_bonds lj/coul 0.0 0.0 0.0
+
+pair_coeff 1 1   0.01570      2.64953
+pair_coeff 2 2   0.10940      3.39967
+pair_coeff 3 3   0.08600      3.39967
+pair_coeff 4 4   0.21000      2.95992
+pair_coeff 5 5   0.17000      3.25000
+pair_coeff 6 6   0.01570      1.06908
+pair_coeff 7 7   0.01570      2.47135
 
 bond_style    harmonic
 bond_coeff 1 570.0 1.229
@@ -100,31 +99,28 @@ velocity     all create 300 2020 mom yes rot yes dist gaussian
 neighbor    2.0 bin
 neigh_modify  every 1 delay 0 check yes
 
-fix         NVE all nve
-#fix         NVE all npt temp 300.0 300.0 100.0 iso 0.0 0.0 1000.0
-
 variable        charge equal charge(all)
 print "charge ${charge}"
-charge -0.0725999999999999
+charge -2.77555756156289e-17
 variable ee equal ecoul+elong
 variable evdw equal evdwl-etail
 variable ecfg equal evdwl+v_ee+edihed+ebond+eangle
 variable esrc equal evdwl
 thermo_style custom time etotal temp  v_ecfg v_esrc  v_ee  ebond eangle edihed v_evdw epair etail press
 thermo_modify flush yes format line "%13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e"
-thermo 10
+thermo 100
 
-timestep    0.1
+fix         NVE all nve
+timestep    1
 run 0
 PPPM initialization ...
-WARNING: System is not charge neutral, net charge = -0.0726 (src/kspace.cpp:313)
   using 12-bit tables for long-range coulomb (src/kspace.cpp:332)
-  G vector (1/distance) = 0.2901
+  G vector (1/distance) = 0.29011
   grid = 15 15 15
   stencil order = 5
-  estimated absolute RMS force accuracy = 0.000291116
-  estimated relative force accuracy = 8.76688e-07
-  using double precision FFTW3
+  estimated absolute RMS force accuracy = 0.000309396
+  estimated relative force accuracy = 9.31736e-07
+  using double precision MKL FFT
   3d grid and FFT values/proc = 10648 3375
 Neighbor list info ...
   update every 1 steps, delay 0 steps, check yes
@@ -140,10 +136,10 @@ Neighbor list info ...
       bin: standard
 Per MPI rank memory allocation (min/avg/max) = 16.16 | 16.16 | 16.16 Mbytes
 Time TotEng Temp v_ecfg v_esrc v_ee E_bond E_angle E_dihed v_evdw E_pair E_tail Press 
- 0.000000e+00 -6.648167e+01  3.000000e+02 -8.526078e+01 -2.239375e-01 -9.403282e+01  4.597482e-04  6.552610e-02  8.929997e+00 -2.195497e-01 -9.425676e+01 -4.387791e-03 -1.433877e+02 
-Loop time of 9.35004e-07 on 1 procs for 0 steps with 22 atoms
+ 0.000000e+00 -5.377728e+01  3.000000e+02 -7.255638e+01 -2.239373e-01 -8.132843e+01  4.597482e-04  6.552610e-02  8.929997e+00 -2.195495e-01 -8.155237e+01 -4.387792e-03 -1.120464e+02 
+Loop time of 2.48043e-06 on 1 procs for 0 steps with 22 atoms
 
-107.0% CPU use with 1 MPI tasks x no OpenMP threads
+40.3% CPU use with 1 MPI tasks x no OpenMP threads
 
 MPI task timing breakdown:
 Section |  min time  |  avg time  |  max time  |%varavg| %total
@@ -155,7 +151,7 @@ Neigh   | 0          | 0          | 0          |   0.0 |  0.00
 Comm    | 0          | 0          | 0          |   0.0 |  0.00
 Output  | 0          | 0          | 0          |   0.0 |  0.00
 Modify  | 0          | 0          | 0          |   0.0 |  0.00
-Other   |            | 9.35e-07   |            |       |100.00
+Other   |            | 2.48e-06   |            |       |100.00
 
 Nlocal:    22 ave 22 max 22 min
 Histogram: 1 0 0 0 0 0 0 0 0 0

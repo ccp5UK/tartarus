@@ -1,18 +1,17 @@
 pair_style    lj/cut/coul/long 10.0
-
-#pair_modify   tail yes mix geometric
-pair_modify   tail yes 
-kspace_style  pppm 1.0e-6
-special_bonds lj/coul 0.0 0.0 0.0
-
+pair_modify   tail yes #mix arithmetic
 pair_coeff  * * 0.0000 0.000
-pair_coeff 1 1 0.01570000002623629  2.6495327872602221
-pair_coeff 2 2 0.10939999991572773  3.3996695084507409
-pair_coeff 3 3 0.086000000128358844 3.3996695079448309
-pair_coeff 4 4 0.20999999984182244  2.9599219016446874
-pair_coeff 5 5 0.16999999991766696  3.2499985240310356
-pair_coeff 6 6 0.015700000004219245 1.0690784617205229
-pair_coeff 7 7 0.015700000098461422 2.4713530426421655
+
+kspace_style  pppm 1.0e-6
+#special_bonds lj/coul 0.0 0.0 0.0
+
+pair_coeff 1 1   0.01570      2.64953
+pair_coeff 2 2   0.10940      3.39967
+pair_coeff 3 3   0.08600      3.39967
+pair_coeff 4 4   0.21000      2.95992
+pair_coeff 5 5   0.17000      3.25000
+pair_coeff 6 6   0.01570      1.06908
+pair_coeff 7 7   0.01570      2.47135
 
 bond_style    harmonic
 bond_coeff 1 570.0 1.229

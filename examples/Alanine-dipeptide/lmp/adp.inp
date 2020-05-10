@@ -12,9 +12,6 @@ velocity     all create $T 2020 mom yes rot yes dist gaussian
 neighbor    2.0 bin
 neigh_modify  every 1 delay 0 check yes
 
-fix         NVE all nve
-#fix         NVE all npt temp 300.0 300.0 100.0 iso 0.0 0.0 1000.0
-
 variable        charge equal charge(all)
 print "charge ${charge}"
 variable ee equal ecoul+elong
@@ -23,9 +20,10 @@ variable ecfg equal evdwl+v_ee+edihed+ebond+eangle
 variable esrc equal evdwl
 thermo_style custom time etotal temp  v_ecfg v_esrc  v_ee  ebond eangle edihed v_evdw epair etail press
 thermo_modify flush yes format line "%13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e %13.6e"
-thermo 10
+thermo 100
 
-timestep    0.1
+fix         NVE all nve
+timestep    1
 run 0
 
 
