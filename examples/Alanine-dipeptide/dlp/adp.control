@@ -1,23 +1,17 @@
-adp
+title adp
 
-temperature         300.0
-steps               0
-equil               0
-
-print                 10
-stack                 10
-stats                 10
-timestep  0.001
-cutoff               10.0
-
-ewald precision    1.0E-6
-
+temperature  300.0 K
+io_file_field adp.field
+io_file_config adp.config
+print_frequency  10.0 steps
+stats_frequency  10.0 steps
+vdw_method direct
+cutoff  10.0 ang
+coul_method ewald
+time_run 0 steps
+ewald_precision 1e-06
 ensemble nve
-vdw direct
-#vdw mix lorenz
-io config adp.config
-io field adp.field
-
-job time       1000000.0
-close time         100.0
-finish
+time_job  1000000.0 s
+time_close  100.0 s
+timestep  0.001 ps
+stack_size  10.0 steps

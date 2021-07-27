@@ -1,22 +1,16 @@
-SODIUM CHLORIDE
+title SODIUM CHLORIDE
 
-temperature           500.0
-equilibration steps   0
-steps                 0
-timestep              0.001
-
-cutoff                11.0
-ewald precision       1d-6
+temperature  500.0 K
+io_file_field NaCl.field
+io_file_config NaCl.config
+print_frequency  1.0 steps
+stats_frequency  1.0 steps
+cutoff  11.0 ang
+coul_method ewald
+time_run 0 steps
+ewald_precision 1e-06
 ensemble nve
-
-print every           1
-stats every           1
-collect
-
-io field NaCl.field
-io config NaCl.config
-
-job time              10000
-close time            10
-
-finish
+time_job  10000.0 s
+time_close  10.0 s
+record_equilibration ON
+timestep  0.001 ps

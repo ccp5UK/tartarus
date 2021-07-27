@@ -3,122 +3,67 @@
 *************  daresbury laboratory general purpose  *** L *******
 **         **  classical molecular dynamics program  **** \ ******
 ** DL_POLY **  authors:   i.t.todorov   &   w.smith  ***** P *****
-**         **  version:  4.10alph /    october 2018  ****** O ****
+**         **  version:  4.10.0   /  September 2020  ****** O ****
 *************  execution on           1 process(es)  ******* L ***
 *************  contributors' list:                   ******** Y **
 *************  ------------------------------------  *************
 *************  i.j.bush, h.a.boateng, r.davidchak,   *************
 *************  m.a.seaton, a.v.brukhno, a.m.elena,   *************
 *************  s.l.daraszewicz,g.khara,s.t.murphy    *************
-*************  j.madge,a.b.g.chalk,i.scivetti        *************
+*************  j.madge,a.b.g.chalk,i.scivetti,       *************
+*************  j.wilkins                             *************
 ******************************************************************
 
-******************************************************************
-**** birthday: Mar 12 2020 @ 20:56:06                         ****
-****  machine: circassia                                      ****
-****  builder: dr faustroll                                   ****
-**** compiler: gfortran v9.2.1 20200128 [revision 83f65674e78 ****
-****      MPI: v3.1                                           ****
-**** MPI libs: Open MPI v3.1.6.0.ea348728b4c8, package: Open  ****
-**** MPI libs: MPI Distribution for SUSE, ident: 3.1.6.0.ea34 ****
-**** MPI libs: 8728b4c8, repo rev: 3.1.6.0.ea348728b4c8, Open ****
-**** MPI libs: MPI 3.1.6 Distribution for SUSE                ****
-**** executed: 2020-05-09  @  22:32:38.363  (GMT+01:00)       ****
-******************************************************************
+**** compiler: GCC version 11.1.1 20210721 [revision 076930b9 ****
+**** compiler: 690ac3564638636f6b13bbb6bc608aea] ****
+*** warning - VdW cutoff less than minimum cutoff, setting to global cutoff !!! ***
 
-CONFIG file is water.config
-FIELD file is spce.field
-
-I/O read method: parallel by using MPI-I/O (assumed)
-I/O readers (assumed)          1
-I/O read batch size (assumed)    2000000
-I/O read buffer size (assumed)      20000
-I/O parallel read error checking off (assumed)
-
-I/O write method: parallel by using MPI-I/O (assumed)
-I/O write type: data sorting on (assumed)
-I/O writers (assumed)          1
-I/O write batch size (assumed)    2000000
-I/O write buffer size (assumed)      20000
-I/O parallel write error checking off (assumed)
-*** warning - short-ranged interaction cutoff check: vdws%cutoff = Min(vdws%cutoff,Max(neigh%cutoff,rcut_def)) !!! ***
-
- warning issued     40
-
- *** warning - tentative cutoff reset to   0.000 Angstroms !!! ***
-
-*** warning - DD cutoff check: neigh%cutoff = Max(neigh%cutoff,vdws%cutoff,met%rcut,kim_data%cutoff,bond%rcut,2.0_wp*rcter+1.0e-6_wp !!! ***
-
- warning issued     40
-
- *** warning - tentative cutoff reset to  10.000 Angstroms !!! ***
-
-
-node/domain decomposition (x,y,z):      1      1      1
-cutoffs driven limit on largest possible decomposition:    27 nodes/domains (3,3,3)
-cutoffs driven limit on largest balanced decomposition:     1 nodes/domains (1,1,1)
-link-cell decomposition 1 (x,y,z):      3     3     3
-cutoffs driven limit on largest possible decomposition:    27 nodes/domains (3,3,3)
-cutoffs driven limit on largest balanced decomposition:     1 nodes/domains (1,1,1)
-link-cell decomposition 1 (x,y,z):      3     3     3
-
-*** pre-scanning stage (set_bounds) DONE ***
- time elapsed since job start:        0.101 sec
 
 ********************************************************************************
 *** title:                                                                   ***
 *** water                                                                    ***
 ********************************************************************************
 
-simulation control parameters
-simulation temperature (K)    3.0000E+02
-selected number of timesteps          0
-equilibration period (steps)          0
-data printing interval (steps)          1
-data stacking interval (steps)        100
-statistics file interval          1
-real space cutoff (Angs)   1.0000E+01
-Electrostatics : Smooth Particle Mesh Ewald
-Ewald sum precision   1.0000E-06
-Ewald convergence parameter (A^-1)   3.2080E-01
-Ewald kmax1 kmax2 kmax3   (x2)    24   24   24
-B-spline interpolation order     8
-Ensemble : NVE (Microcanonical)
-vdw direct option on
-clean start requested
-Extended Coulombic eXclusion : NO
-cutoff padding reset to (Angs)   2.0000E-01
-vdw cutoff reset to (Angs)   1.0000E+01
-fixed simulation timestep (ps)   2.0000E-03
-data dumping interval (steps)       1000
-subcelling threshold density   5.0000E+01
-allocated job run time (s)   1.0000E+06
-allocated job close time (s)   1.0000E+02
 
-system specification
-energy units = kcal/mol
-number of molecular types               1
-molecular species type                  1
-name of species:             SPC Water
-number of atoms/sites                   3
-atomic characteristics:
-        site    name             mass         charge      repeat      freeze
-           1    O             15.999400      -0.847200         1         0
-           2    H              1.008000       0.423600         2         0
-number of chemical bonds          2
-chemical bond details:
-        unit     key     index     index     parameters
-           1    harm         1         2    2000.000000       1.000000       0.000000       0.000000
-           2    harm         1         3    2000.000000       1.000000       0.000000       0.000000
-number of bond angles          1
-bond angle details:
-        unit     key     index     index     index        f-const        angle
-           1    harm         2         1         3     200.000000     109.470000       0.000000       0.000000       0.000000       0.000000
-total number of molecules       1392
-total number of sites          3
-number of specified vdw potentials          1
-        pair     atom 1  atom 2     key       parameters
-           1     O       O          lj          0.155350       3.166000       0.000000       0.000000       0.000000       0.000000       0.000000
+I/O Parameters:
+  I/O read method: parallel by using MPI-I/O
+  I/O readers set to 1
+  I/O write method: parallel by using MPI-I/O
+  I/O writers set to 1
+
+File outputs:
+  CONFIG file is water.config
+  FIELD file is spce.field
+
+System parameters:
+  Fixed simulation timestep (ps):  2.00000E-03
+  Rolling averages length (steps):        100
+  File output info:
+  -- Restart dumping interval (steps):       1000
+  -- Data printing interval (steps):          1
+  -- Statistics file interval (steps):          1
+  Simulation temperature (K):    300.00
+
+Thermostat details:
+  Ensemble: NVE (Microcanonical)
+
+Forcefield Parameters:
+  Final link-cell decomposition (x,y,z):      3     3     3
+  Real space cutoff (Angs):   10.000
+  Cutoff padding (Angs):  0.20000
+  Subcelling threshold density:   50.000
+  VdWs: Direct calculation
+  -- VdW cutoff (Angs):   10.000
+  Electrostatics: Smooth Particle Mesh Ewald
+  -- Ewald sum precision:  1.00000E-06
+  -- Ewald convergence parameter (Angs^-1):  0.32080
+  -- Ewald kmax1 kmax2 kmax3   (x2):    24   24   24
+  -- B-spline interpolation order: 8
+  -- Extended Coulombic eXclusion: OFF
+
+
+
+detailed topology opted out
 
  warning issued    120
 
@@ -133,35 +78,16 @@ simulation cell vectors
 system volume            44788.2534836
 
 *** all reading and connectivity checks DONE ***
- time elapsed since job start:        0.126 sec
+time elapsed since job start:        0.094 sec
 long-range correction for:
   vdw energy   -0.566844E+02
   vdw pressure   -0.173504E+00
 
 *** initialisation and haloing DONE ***
- time elapsed since job start:        0.142 sec
-//==============================================================\\
-||                                                              ||
-||           SUMMARY  OF  TOPOLOGICAL  DECOMPOSITION            ||
-||                                                              ||
-||--------------------------------------------------------------||
-||  INTERACTION  OR  TYPE  |  GRAND TOTAL | Fully/Partly FROZEN ||
-||-------------------------+--------------+---------------------||
-||  all particles/sites    |        4176  |  F            0     ||
-||  free particles         |        4176  |  F            0     ||
-||  core-shell units       |           0  |  P            0     ||
-||  constraint bond units  |           0  |  F            0     ||
-||  PMF units              |           0  |  P         NONE     ||
-||  rigid body units       |           0  |  F            0     ||
-||  tethered atom units    |           0  |  F            0     ||
-||  chemical bond units    |        2784  |  F            0     ||
-||  bond angle units       |        1392  |  F            0     ||
-||  dihedral angle units   |           0  |  F            0     ||
-||  inversion angle units  |           0  |  F            0     ||
-\\==============================================================//
+time elapsed since job start:        0.098 sec
 
 *** bookkeeping DONE ***
- time elapsed since job start:        0.146 sec
+time elapsed since job start:        0.100 sec
 degrees of freedom break-down neigh%list:
   free particles               12528
   centre of mass                  -3
@@ -174,7 +100,7 @@ degrees of freedom break-down neigh%list:
   total (real)                 12525
 
 *** temperature setting DONE ***
- time elapsed since job start:        0.169 sec
+time elapsed since job start:        0.105 sec
 forces evaluated at (re)start for VV integration...
 
 ----------------------------------------------------------------------------------------------------------------------------------
@@ -184,13 +110,13 @@ forces evaluated at (re)start for VV integration...
 ----------------------------------------------------------------------------------------------------------------------------------
             0 -1.0598E+04  3.0000E+02 -1.4331E+04  2.6725E+03 -1.7049E+04  4.1345E+01  3.1927E+00  0.0000E+00  0.0000E+00
       0.00000  5.2160E+03  0.0000E+00 -3.9975E+04 -6.1100E+04  1.7046E+04  4.0789E+03  0.0000E+00  0.0000E+00  0.0000E+00
-        0.494  4.4788E+04  0.0000E+00  0.0000E+00  0.0000E+00  9.0000E+01  9.0000E+01  9.0000E+01  0.0000E+00  2.4210E+01
+        0.214  4.4788E+04  0.0000E+00  0.0000E+00  0.0000E+00  9.0000E+01  9.0000E+01  9.0000E+01  0.0000E+00  2.4210E+01
 
       rolling  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
      averages  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
                0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
 ----------------------------------------------------------------------------------------------------------------------------------
-run terminating... elapsed  cpu time:        0.494 sec, job time:  1000000.000 sec, close time:      100.000 sec
+run terminating... elapsed  cpu time:        0.214 sec, job time:  1000000.000 sec, close time:      100.000 sec
 
 dry run terminated
 pressure tensor  (katms):
@@ -198,26 +124,23 @@ pressure tensor  (katms):
     1.8251E-01  2.4176E+01 -1.2418E-01
     1.6440E-01 -1.2418E-01  2.4736E+01
   trace/3    2.4210E+01
-time elapsed since job start:        0.542 sec
-  +----------------------------+----------+----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
-  |            Name            | Process  |  Calls   | Call Min  | Call Max  | Call Ave  |  Tot Min  |  Tot Max  |  Tot Ave  |     %     |
-  | |v      Main               | All      |        1 |    0.5356 |    0.5356 |    0.5356 |    0.5356 |    0.5356 |    0.5356 |  100.0000 |
-  |  |-     Initialisation     | All      |        1 |    0.1200 |    0.1200 |    0.1200 |    0.1200 |    0.1200 |    0.1200 |   22.4000 |
-  |  |v     Main Calc          | All      |        1 |    0.3255 |    0.3255 |    0.3255 |    0.3255 |    0.3255 |    0.3255 |   60.7636 |
-  |   |-    Linked Cells       | All      |        1 |    0.1342 |    0.1342 |    0.1342 |    0.1342 |    0.1342 |    0.1342 |   25.0580 |
-  |   |-    Bonded Forces      | All      |        1 |    0.0034 |    0.0034 |    0.0034 |    0.0034 |    0.0034 |    0.0034 |    0.6278 |
-  |   |-    Long Range         | All      |        1 |    0.0814 |    0.0814 |    0.0814 |    0.0814 |    0.0814 |    0.0814 |   15.1994 |
-  |   |-    Short Range        | All      |        1 |    0.1013 |    0.1013 |    0.1013 |    0.1013 |    0.1013 |    0.1013 |   18.9167 |
-  |  |-     Termination        | All      |        1 |    0.0473 |    0.0473 |    0.0473 |    0.0473 |    0.0473 |    0.0473 |    8.8233 |
-  | ------- Untimed            | All      |        0 |    0.0000 |    0.0000 |    0.0000 |    0.0000 |    0.0000 |    0.0429 |    8.0131 |
-  +----------------------------+----------+----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
- 
- 
+time elapsed since job start:        0.321 sec
+ +----------------------------+----------+----------+------------+------------+------------+------------+------------+------------+------------+
+ |            Name            | Process  |  Calls   |  Call Min  |  Call Max  |  Call Ave  |  Tot Min   |   Tot Max  |   Tot Ave  |      %     |
+ | |v      Main               | All      |        1 |  3.200E-01 |  3.200E-01 |  3.200E-01 |  3.200E-01 |  3.200E-01 |  3.200E-01 |  1.000E+02 |
+ |  |-     Initialisation     | All      |        1 |  9.300E-02 |  9.300E-02 |  9.300E-02 |  9.300E-02 |  9.300E-02 |  9.300E-02 |  2.906E+01 |
+ |  |v     Main Calc          | All      |        1 |  1.090E-01 |  1.090E-01 |  1.090E-01 |  1.090E-01 |  1.090E-01 |  1.090E-01 |  3.406E+01 |
+ |   |-    Linked Cells       | All      |        1 |  4.600E-02 |  4.600E-02 |  4.600E-02 |  4.600E-02 |  4.600E-02 |  4.600E-02 |  1.438E+01 |
+ |   |-    Bonded Forces      | All      |        1 |  1.000E-03 |  1.000E-03 |  1.000E-03 |  1.000E-03 |  1.000E-03 |  1.000E-03 |  3.125E-01 |
+ |   |-    Two-Body Init      | All      |        1 |  0.000E+00 |  0.000E+00 |  0.000E+00 |  0.000E+00 |  0.000E+00 |  0.000E+00 |  0.000E+00 |
+ |   |-    Long Range         | All      |        1 |  1.600E-02 |  1.600E-02 |  1.600E-02 |  1.600E-02 |  1.600E-02 |  1.600E-02 |  5.000E+00 |
+ |   |-    Short Range        | All      |        1 |  4.600E-02 |  4.600E-02 |  4.600E-02 |  4.600E-02 |  4.600E-02 |  4.600E-02 |  1.438E+01 |
+ |   |-    Two-Body Final     | All      |        1 |  0.000E+00 |  0.000E+00 |  0.000E+00 |  0.000E+00 |  0.000E+00 |  0.000E+00 |  0.000E+00 |
+ |  |-     Termination        | All      |        1 |  1.070E-01 |  1.070E-01 |  1.070E-01 |  1.070E-01 |  1.070E-01 |  1.070E-01 |  3.344E+01 |
+ | ------- Untimed            | All      |        0 |  0.000E+00 |  0.000E+00 |  0.000E+00 |  0.000E+00 |  0.000E+00 |  1.100E-02 |  3.437E+00 |
+ +----------------------------+----------+----------+------------+------------+------------+------------+------------+------------+------------+
 
-******************************************************************
-****  Please do cite `J. Mater. Chem.', 16, 1911-1918 (2006)  ****
-****  when publishing research data obtained using DL_POLY_4  ****
-******************************************************************
+
 
 ******************************************************************
 **** Thank you for using the DL_POLY_4 package in your work.  ****

@@ -1,20 +1,18 @@
-water
+title water
 
-temperature         300.0
-steps               0
-equil               0
-print                 1
-stack                 1
-stats                 1
-timestep  0.002
-cutoff               10.0
-ewald precision    1.0E-6
-shake tolerance   1.0E-4
+temperature  300.0 K
+io_file_field spce.field
+io_file_config water.config
+print_frequency  1.0 steps
+stats_frequency  1.0 steps
+vdw_method direct
+cutoff  10.0 ang
+time_run 0 steps
+coul_method ewald
+ewald_precision 1e-06
 ensemble nve
-vdw direct
-io config water.config
-io field spce.field
-
-job time       1000000.0
-close time         100.0
-finish
+time_job  1000000.0 s
+time_close  100.0 s
+timestep  0.002 ps
+stack_size  1.0 steps
+shake_tolerance  0.0001 ang
